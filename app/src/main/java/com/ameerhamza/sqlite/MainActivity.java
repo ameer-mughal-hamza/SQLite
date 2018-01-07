@@ -11,8 +11,8 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     SqlHelper myDb;
-    EditText name, surname, marks;
-    Button add, view;
+    EditText name, surname, marks, id;
+    Button add, view, update, delete;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +23,11 @@ public class MainActivity extends AppCompatActivity {
         name = findViewById(R.id.name);
         surname = findViewById(R.id.surname);
         marks = findViewById(R.id.marks);
+        id = findViewById(R.id.id);
+        update = findViewById(R.id.update);
         add = findViewById(R.id.add);
         view = findViewById(R.id.view);
+        delete = findViewById(R.id.delete);
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,6 +60,32 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Integer isDeleted = myDb.delete(id.getText().toString());
+                if (isDeleted > 0) {
+                    Toast.makeText(MainActivity.this, "Data update Sucessfully", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(MainActivity.this, "Data not updated Sucessfully", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+        update.setOnClickListener(new View.OnClickListener()
+
+        {
+            @Override
+            public void onClick(View v) {
+                boolean isUpdated = myDb.updateData(id.getText().toString(), name.getText().toString()
+                        , surname.getText().toString(), marks.getText().toString());
+                if (isUpdated) {
+                    Toast.makeText(MainActivity.this, "Data update Sucessfully", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(MainActivity.this, "Data not updated Sucessfully", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
 
     }
 

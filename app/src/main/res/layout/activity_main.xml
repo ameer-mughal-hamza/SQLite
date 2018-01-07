@@ -25,6 +25,13 @@
         android:layout_height="wrap_content"
         android:hint="Enter your marks here" />
 
+    <EditText
+        android:id="@+id/id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Enter your id here" />
+
+
     <Button
         android:id="@+id/add"
         android:layout_width="wrap_content"
@@ -36,5 +43,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="View" />
+
+    <Button
+        android:id="@+id/update"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update" />
+
+    <Button
+        android:id="@+id/delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete" />
 
 </LinearLayout>
